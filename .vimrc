@@ -42,6 +42,8 @@ set encoding=utf8
 " set ffs=unix,dos,mac
 
 
+Plugin 'scrooloose/syntastic'
+
 Plugin 'tpope/vim-fugitive'
 nnoremap <Leader>gs :Gstatus<cr>
 nnoremap <Leader>gb :Gblame<cr>
