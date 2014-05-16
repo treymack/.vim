@@ -16,11 +16,40 @@ Plugin 'gmarik/Vundle.vim'
 
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable syntax highlighting
+syntax enable
+
+colorscheme desert
+set background=dark
+
+" Set extra options when running in GUI mode
+if has("gui_running")
+    set guifont=Source_Code_Pro_Medium:h11
+    set guioptions-=T
+    " set guioptions+=e
+    set t_Co=256
+    " set guitablabel=%M\ %t " suspicious this line is creating
+    " a new tab when sourcing vimrc
+endif
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
+
+" " Use Unix as the standard file type
+" set ffs=unix,dos,mac
+
+
 Plugin 'tpope/vim-fugitive'
 nnoremap <Leader>gs :Gstatus<cr>
 nnoremap <Leader>gb :Gblame<cr>
 nnoremap <Leader>gc :Gcommit<cr>
 nnoremap <Leader>gd :Gdiff<cr>
+
+Plugin 'airblade/vim-gitgutter'
+highlight clear SignColumn
 
 Plugin 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
@@ -244,32 +273,6 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable syntax highlighting
-syntax enable
-
-colorscheme desert
-set background=dark
-
-" Set extra options when running in GUI mode
-if has("gui_running")
-    set guifont=Source_Code_Pro_Medium:h11
-    set guioptions-=T
-    " set guioptions+=e
-    set t_Co=256
-    " set guitablabel=%M\ %t " suspicious this line is creating
-    " a new tab when sourcing vimrc
-endif
-
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
-
-" " Use Unix as the standard file type
-" set ffs=unix,dos,mac
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
