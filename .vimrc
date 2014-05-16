@@ -16,11 +16,16 @@ Plugin 'gmarik/Vundle.vim'
 
 
 
-" " git git git for FUGITIVE!
-" nnoremap <Leader>gs :Gstatus<cr>
-" nnoremap <Leader>gb :Gblame<cr>
-" nnoremap <Leader>gc :Gcommit<cr>
-" nnoremap <Leader>gd :Gdiff<cr>
+Plugin 'tpope/vim-fugitive'
+nnoremap <Leader>gs :Gstatus<cr>
+nnoremap <Leader>gb :Gblame<cr>
+nnoremap <Leader>gc :Gcommit<cr>
+nnoremap <Leader>gd :Gdiff<cr>
+
+Plugin 'bling/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'solarized'
 
 " map <Leader>e :NERDTreeToggle<CR>
 " map <Leader><Leader>e :NERDTreeFind<CR>
@@ -55,8 +60,6 @@ Plugin 'gmarik/Vundle.vim'
 " " (the /min is a Windows-specific way to run the command in the background so that Vim doesn't lock up while indexing very large projects)
 " noremap <f5> :!start cmd /c "ctags -R ." & pause<cr>:FufRenewCache<cr>
 " 
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline_powerline_fonts = 1
 
 
 
