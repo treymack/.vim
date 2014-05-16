@@ -65,32 +65,32 @@ let g:airline_theme = 'solarized'
 " noremap <Leader>cc :TComment<CR>
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " " Fuzzy Finder config
-" " 
+" "
 " " directories and extensions to ignore when listing files
 " " these contain a lot of Python-isms, yours will probably vary
-" " 
+" "
 " " Truth be told, I don't remember what these do, but I must have
 " " found them necessary back when I installed fuzzyfinder years ago
 " let s:slash = '[/\\]'
 " let s:startname = '(^|'.s:slash.')'
 " let s:endname = '($|'.s:slash.')'
-" 
+"
 " let s:extension = '\.bak|\.dll|\.exe|\.o|\.pyc|\.pyo|\.swp|\.swo'
 " let s:dirname = 'ready|build|deploy|dist|vms|\.bzr|\.git|\.hg|\.svn|.+\.egg-info|bin|obj|_Resharper.*'
 " let g:fuf_file_exclude = '\v'.'('.s:startname.'('.s:dirname.')'.s:endname.')|(('.s:extension.')$)'
 " let g:fuf_dir_exclude = '\v'.s:startname.'('.s:dirname.')'.s:endname
-" 
+"
 " " limit number of displayed matches
 " " (makes response instant even on huge source trees)
 " let g:fuf_enumeratingLimit = 60
-" 
+"
 " nnoremap <Leader>ff :FufFile **/<cr>
 " nnoremap <Leader>fb :FufBuffer<cr>
 " nnoremap <Leader>ft :FufTag<cr>
-" 
+"
 " " (the /min is a Windows-specific way to run the command in the background so that Vim doesn't lock up while indexing very large projects)
 " noremap <f5> :!start cmd /c "ctags -R ." & pause<cr>:FufRenewCache<cr>
-" 
+"
 
 
 
@@ -134,9 +134,9 @@ behave mswin
 "   endif
 "   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 " endfunction
-" 
+"
 " " END DEFAULT VIMRC
-" 
+"
 
 let mapleader = ","
 map K i<CR><Esc>
@@ -164,27 +164,27 @@ nnoremap <F12>o :exe ':silent !opera %'<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Maintainer: 
+" Maintainer:
 "       Amir Salihefendic
 "       http://amix.dk - amix@amix.dk
-"
-" Version: 
+
+" Version:
 "       5.0 - 29/05/12 15:43:36
-"
-" Blog_post: 
+
+" Blog_post:
 "       http://amix.dk/blog/post/19691#The-ultimate-Vim-configuration-on-Github
-"
+
 " Awesome_version:
 "       Get this config, nice color schemes and lots of plugins!
 "
 "       Install the awesome version from:
 "
 "           https://github.com/amix/vimrc
-"
+
 " Syntax_highlighted:
 "       http://amix.dk/vim/vimrc.html
 "
-" Raw_version: 
+" Raw_version:
 "       http://amix.dk/vim/vimrc.txt
 "
 " Sections:
@@ -249,7 +249,7 @@ set whichwrap+=<,>,h,l
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
@@ -365,13 +365,13 @@ map <leader>tm :tabmove
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
-" " Specify the behavior when switching between buffers 
+" " Specify the behavior when switching between buffers
 " try
 "   set switchbuf=useopen,usetab,newtab
 "   set stal=2
 " catch
 " endtry
-" 
+"
 " " Return to last edit position when opening files (You want this!)
 " autocmd BufReadPost *
 "      \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -422,21 +422,21 @@ endif
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " " When you press gv you vimgrep after the selected text
 " vnoremap <silent> gv :call VisualSelection('gv')<CR>
-" 
+"
 " " Open vimgrep and put the cursor in the right position
 " map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
-" 
+"
 " " Vimgreps in the current file
 " map <leader><space> :vimgrep // <C-R>%<C-A><right><right><right><right><right><right><right><right><right>
-" 
+"
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 
 " " Do :help cope if you are unsure what cope is. It's super useful!
-" "
+"
 " " When you search with vimgrep, display your results in cope by doing:
 " "   <leader>cc
-" "
+"
 " " To go to the next search result do:
 " "   <leader>n
 " "
@@ -447,30 +447,30 @@ vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 " map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
 " map <leader>n :cn<cr>
 " map <leader>p :cp<cr>
-" 
-" 
+"
+"
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " " => Spell checking
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " " Pressing ,ss will toggle and untoggle spell checking
 " map <leader>ss :setlocal spell!<cr>
-" 
+"
 " " Shortcuts using <leader>
 " map <leader>sn ]s
 " map <leader>sp [s
 " map <leader>sa zg
 " map <leader>s? z=
-" 
-" 
+"
+"
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " " => Misc
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " " Remove the Windows ^M - when the encodings gets messed up
 " noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
-" 
+"
 " " Quickly open a buffer for scripbble
 " map <leader>q :e ~/buffer<cr>
-" 
+"
 " " Toggle paste mode on and off
 " map <leader>pp :setlocal paste!<cr>
 
