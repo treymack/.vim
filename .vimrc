@@ -44,6 +44,9 @@ set encoding=utf8
 
 Plugin 'scrooloose/syntastic'
 
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+
 Plugin 'tpope/vim-fugitive'
 nnoremap <Leader>gs :Gstatus<cr>
 nnoremap <Leader>gb :Gblame<cr>
