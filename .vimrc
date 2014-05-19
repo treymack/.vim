@@ -61,6 +61,10 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'solarized'
 
+" General
+Plugin 'godlygeek/tabular'
+Plugin 'quentindecock/vim-cucumber-align-pipes'
+
 " Javascript
 Plugin 'elzr/vim-json'
 Plugin 'groenewege/vim-less'
