@@ -61,6 +61,15 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'solarized'
 
+" Javascript
+Plugin 'elzr/vim-json'
+Plugin 'groenewege/vim-less'
+
+let g:javascript_conceal = 1
+Plugin 'pangloss/vim-javascript'
+
+Plugin 'briancollins/vim-jst'
+
 " map <Leader>e :NERDTreeToggle<CR>
 " map <Leader><Leader>e :NERDTreeFind<CR>
 " Commenting blocks of code.
