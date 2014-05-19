@@ -73,6 +73,9 @@ Plugin 'briancollins/vim-jst'
 " HTML
 Plugin 'gorodinskiy/vim-coloresque'
 
+" Ruby
+Plugin 'tpope/vim-rake'
+
 " map <Leader>e :NERDTreeToggle<CR>
 " map <Leader><Leader>e :NERDTreeFind<CR>
 " Commenting blocks of code.
