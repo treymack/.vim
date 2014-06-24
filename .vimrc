@@ -2,6 +2,7 @@
 " Vundle config (header) {
 "
 
+let mapleader = ","
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -49,7 +50,7 @@ Plugin 'mattn/gist-vim'
 
 Plugin 'tpope/vim-fugitive'
 nnoremap <Leader>gs :Gstatus<cr>
-nnoremap <Leader>gb :Gblame<cr>
+nnoremap <Leader>gb :Gblame w<cr>
 nnoremap <Leader>gc :Gcommit<cr>
 nnoremap <Leader>gd :Gdiff<cr>
 
@@ -62,6 +63,11 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'solarized'
 
 " General
+Plugin 'scrooloose/nerdtree'
+map <Leader>e :NERDTreeToggle<CR>
+map <Leader><Leader>e :NERDTreeFind<CR>
+
+Plugin 'tpope/vim-surround'
 Plugin 'godlygeek/tabular'
 Plugin 'quentindecock/vim-cucumber-align-pipes'
 
@@ -77,11 +83,13 @@ Plugin 'briancollins/vim-jst'
 " HTML
 Plugin 'gorodinskiy/vim-coloresque'
 
+" Markdown
+Plugin 'plasticboy/vim-markdown'
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
 " Ruby
 Plugin 'tpope/vim-rake'
 
-" map <Leader>e :NERDTreeToggle<CR>
-" map <Leader><Leader>e :NERDTreeFind<CR>
 " Commenting blocks of code.
 " noremap <Leader>c :TComment<CR>
 " noremap <Leader>cc :TComment<CR>
@@ -160,7 +168,6 @@ behave mswin
 " " END DEFAULT VIMRC
 "
 
-let mapleader = ","
 map K i<CR><Esc>
 " noremap <C-B> :wa<CR> :!rake<CR> :copen 7<CR>
 noremap <C-B> :wa<CR> :!rake<CR>
@@ -245,6 +252,10 @@ nmap <leader>w :wa!<cr>
 
 " Fast omnicomplete
 inoremap <C-Space> <C-X><C-O>
+
+" Insert to Normal mode real quick-like
+inoremap jk <Esc>
+inoremap kj <Esc>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
