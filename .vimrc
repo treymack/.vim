@@ -67,6 +67,10 @@ Plugin 'scrooloose/nerdtree'
 map <Leader>e :NERDTreeToggle<CR>
 map <Leader><Leader>e :NERDTreeFind<CR>
 
+
+Plugin 'kien/ctrlp.vim'
+set wildignore+=*\\_Resharper*\\*,*\\.git\\*,*\\.hg\\*,*\\.svn\\*  " Windows ('noshellslash')
+
 Plugin 'tpope/vim-surround'
 Plugin 'godlygeek/tabular'
 Plugin 'quentindecock/vim-cucumber-align-pipes'
@@ -82,6 +86,9 @@ Plugin 'briancollins/vim-jst'
 
 " HTML
 Plugin 'gorodinskiy/vim-coloresque'
+:set isk-=-
+:set isk-=#
+:set isk-=.
 
 " Markdown
 Plugin 'plasticboy/vim-markdown'
@@ -93,6 +100,18 @@ Plugin 'tpope/vim-rake'
 " Commenting blocks of code.
 " noremap <Leader>c :TComment<CR>
 " noremap <Leader>cc :TComment<CR>
+" Commenting blocks of code.
+
+autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+autocmd FileType javascript,cs    let b:comment_leader = '// '
+autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType conf,fstab       let b:comment_leader = '# '
+autocmd FileType tex              let b:comment_leader = '% '
+autocmd FileType mail             let b:comment_leader = '> '
+autocmd FileType vim              let b:comment_leader = '" '
+noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " " Fuzzy Finder config
 " "
@@ -267,7 +286,7 @@ set so=2
 set wildmenu
 
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc,*.obj,*.exe,*.dll
+set wildignore+=*.o,*~,*.pyc,*.obj,*.exe,*.dll
 
 "Always show current position
 set ruler
@@ -344,7 +363,7 @@ autocmd FileType xml setlocal shiftwidth=2 tabstop=2
 autocmd BufRead *.cshtml setf html
 
 " format whole document with ==
-nnoremap == m6ggVG=`6
+nnoremap == myggVG=`y
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -383,7 +402,7 @@ map <leader>ba :1,1000 bd!<cr>
 
 " next / previous buffers
 noremap <C-n> :bn<cr>
-noremap <C-p> :bp<cr>
+" noremap <C-p> :bp<cr>
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
