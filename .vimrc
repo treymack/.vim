@@ -85,10 +85,10 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'briancollins/vim-jst'
 
 " HTML
-Plugin 'gorodinskiy/vim-coloresque'
-:set isk-=-
-:set isk-=#
-:set isk-=.
+" Plugin 'gorodinskiy/vim-coloresque'
+" :set isk-=-
+" :set isk-=#
+" :set isk-=.
 
 " Markdown
 Plugin 'plasticboy/vim-markdown'
