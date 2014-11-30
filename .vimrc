@@ -93,6 +93,7 @@ Plugin 'briancollins/vim-jst'
 " Markdown
 Plugin 'plasticboy/vim-markdown'
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd FileType markdown setlocal shiftwidth=2 tabstop=2
 
 " Ruby
 Plugin 'tpope/vim-rake'
