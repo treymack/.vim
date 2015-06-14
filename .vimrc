@@ -503,7 +503,7 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Close the current buffer
-map <leader>bd :bd<cr>
+map <leader>bd :bp\|bd #<cr>
 
 " Close all the buffers
 map <leader>ba :1,1000 bd!<cr>
@@ -675,5 +675,6 @@ function! HasPaste()
     return ''
 endfunction
 
-
+nnoremap <A-a> <C-a>
+nnoremap <A-x> <C-x>
 
