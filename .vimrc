@@ -49,7 +49,7 @@ set encoding=utf8
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Oh wow OmniSharp!
-Plugin 'nosami/Omnisharp'
+"Plugin 'nosami/Omnisharp'
 Plugin 'tpope/vim-dispatch'
 inoremap <C-Space> <C-X><C-O>
 " OmniSharp won't work without this setting
@@ -176,7 +176,9 @@ highlight clear SignColumn
 
 Plugin 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+if has ("gui_running")
+    let g:airline_powerline_fonts = 1
+endif
 let g:airline_theme = 'solarized'
 
 " General
@@ -202,18 +204,22 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'briancollins/vim-jst'
 
 " HTML
+Plugin 'mattn/emmet-vim'
 " Plugin 'gorodinskiy/vim-coloresque'
 " :set isk-=-
 " :set isk-=#
 " :set isk-=.
 
 " Markdown
-Plugin 'plasticboy/vim-markdown'
+" Plugin 'plasticboy/vim-markdown'
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd FileType markdown setlocal shiftwidth=2 tabstop=2
 
 " Ruby
 Plugin 'tpope/vim-rake'
+
+" Todo.TXT
+Plugin 'freitass/todo.txt-vim'
 
 " Commenting blocks of code.
 " noremap <Leader>c :TComment<CR>
@@ -633,6 +639,12 @@ vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 "
 " " Toggle paste mode on and off
 " map <leader>pp :setlocal paste!<cr>
+
+if has("gui_running")
+  " GUI is running or is about to start.
+  " Maximize gvim window (for an alternative on Windows, see simalt below).
+  set lines=999 columns=999
+endif
 
 
 
