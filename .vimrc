@@ -49,7 +49,7 @@ set encoding=utf8
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Oh wow OmniSharp!
-"Plugin 'nosami/Omnisharp'
+"Plugin 'OmniSharp/omnisharp-vim'
 Plugin 'tpope/vim-dispatch'
 inoremap <C-Space> <C-X><C-O>
 " OmniSharp won't work without this setting
@@ -187,7 +187,7 @@ map <Leader>e :NERDTreeToggle<CR>
 map <Leader><Leader>e :NERDTreeFind<CR>
 
 
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 set wildignore+=*\\_Resharper*\\*,*\\.git\\*,*\\.hg\\*,*\\.svn\\*  " Windows ('noshellslash')
 
 Plugin 'tpope/vim-surround'
@@ -220,6 +220,7 @@ Plugin 'tpope/vim-rake'
 
 " Todo.TXT
 Plugin 'freitass/todo.txt-vim'
+autocmd BufNewFile,BufReadPost todo.txt set filetype=todo
 
 " Commenting blocks of code.
 " noremap <Leader>c :TComment<CR>
