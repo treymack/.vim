@@ -58,7 +58,7 @@ set encoding=utf8
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Oh wow OmniSharp!
-"Plugin 'OmniSharp/omnisharp-vim'
+" Plugin 'OmniSharp/omnisharp-vim'
 Plugin 'tpope/vim-dispatch'
 inoremap <C-Space> <C-X><C-O>
 
@@ -184,17 +184,21 @@ nnoremap <Leader>gd :Gdiff<cr>
 Plugin 'airblade/vim-gitgutter'
 highlight clear SignColumn
 
-Plugin 'bling/vim-airline'
-let g:airline#extensions#tabline#enabled = 1
-if has ("gui_running")
-    let g:airline_powerline_fonts = 1
+if !exists("$GIT_DIR") " git home messes with airline
+    Plugin 'bling/vim-airline'
+    let g:airline#extensions#tabline#enabled = 1
+    if has ("gui_running")
+        let g:airline_powerline_fonts = 1
+    endif
+    " let g:airline_theme = 'solarized'
 endif
-let g:airline_theme = 'solarized'
 
 " General
-Plugin 'scrooloose/nerdtree'
-map <Leader>e :NERDTreeToggle<CR>
-map <Leader><Leader>e :NERDTreeFind<CR>
+if !exists("$GIT_DIR") " when launched from git, nerdtree gets confused about %home
+    Plugin 'scrooloose/nerdtree'
+    map <Leader>e :NERDTreeToggle<CR>
+    map <Leader><Leader>e :NERDTreeFind<CR>
+endif
 
 
 Plugin 'ctrlpvim/ctrlp.vim'
