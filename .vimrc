@@ -14,6 +14,12 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" insert date with F3
+nmap <F3> i<C-R>=strftime("%Y-%m-%d")<CR><Esc>
+imap <F3> <C-R>=strftime("%Y-%m-%d")<CR>
+nmap <Leader><F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+imap <Leader><F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
@@ -46,12 +52,16 @@ set encoding=utf8
 " " Use Unix as the standard file type
 " set ffs=unix,dos,mac
 
+" Autocomplete file path with tab in insert mode
+" Doesn't work in VsVim
+" inoremap <Tab> <C-X><C-F>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Oh wow OmniSharp!
 "Plugin 'OmniSharp/omnisharp-vim'
 Plugin 'tpope/vim-dispatch'
 inoremap <C-Space> <C-X><C-O>
+
 " OmniSharp won't work without this setting
 filetype plugin on
 
