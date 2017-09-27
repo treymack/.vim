@@ -228,6 +228,9 @@ Plugin 'mattn/emmet-vim'
 " Plugin 'plasticboy/vim-markdown'
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd FileType markdown setlocal shiftwidth=2 tabstop=2
+" Open markdown files with Chrome.
+autocmd BufEnter *.md exe 'noremap <F5> :wa<CR> :!start C:\Program Files (x86)\Google\Chrome\Application\chrome.exe %:p<CR>'
+autocmd BufEnter *.html exe 'noremap <F5> :wa<CR> :!start C:\Program Files (x86)\Google\Chrome\Application\chrome.exe %:p<CR>'
 
 " Ruby
 Plugin 'tpope/vim-rake'
@@ -523,9 +526,6 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Close the current buffer
-map <leader>bd :bp\|bd #<cr>
-
 " Close all the buffers
 map <leader>ba :1,1000 bd!<cr>
 
@@ -656,12 +656,11 @@ vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 " map <leader>pp :setlocal paste!<cr>
 
 if has("gui_running")
-  " GUI is running or is about to start.
-  " Maximize gvim window (for an alternative on Windows, see simalt below).
-  set lines=999 columns=999
+    " GUI is running or is about to start.
+    " Maximize gvim window (for an alternative on Windows, see simalt below).
+    " Use ~x on an English Windows version or ~n for French.
+    au GUIEnter * simalt ~x
 endif
-
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
