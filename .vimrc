@@ -14,17 +14,16 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" insert date with F3
-nmap <F3> i<C-R>=strftime("%Y-%m-%d")<CR><Esc>
-imap <F3> <C-R>=strftime("%Y-%m-%d")<CR>
-nmap <Leader><F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
-imap <Leader><F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
-
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
 " }
 
+" insert date with F3
+nmap <F3> i<C-R>=strftime("%Y-%m-%d")<CR><Esc>
+imap <F3> <C-R>=strftime("%Y-%m-%d")<CR>
+nmap <Leader><F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+imap <Leader><F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -56,9 +55,12 @@ set encoding=utf8
 " Doesn't work in VsVim
 " inoremap <Tab> <C-X><C-F>
 
+" Disable the OmniSharp block. Too slow.
+if 0
+    i
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Oh wow OmniSharp!
-" Plugin 'OmniSharp/omnisharp-vim'
+Plugin 'OmniSharp/omnisharp-vim'
 Plugin 'tpope/vim-dispatch'
 inoremap <C-Space> <C-X><C-O>
 
@@ -111,7 +113,8 @@ augroup omnisharp_commands
     " Builds can also run asynchronously with vim-dispatch installed
     autocmd FileType cs nnoremap <leader>b :wa!<cr>:OmniSharpBuildAsync<cr>
     " automatic syntax check on events (TextChanged requires Vim 7.4)
-    autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
+    " autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
+    " autocmd BufWritePre *.cs SyntasticCheck
 
     " Automatically add new cs files to the nearest project on save
     autocmd BufWritePost *.cs call OmniSharp#AddToProject()
@@ -169,6 +172,8 @@ nnoremap <leader>th :OmniSharpHighlightTypes<cr>
 "Don't ask to save when changing buffers (i.e. when jumping to a type definition)
 set hidden
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+.
+endif
 
 Plugin 'scrooloose/syntastic'
 
@@ -180,6 +185,7 @@ nnoremap <Leader>gs :Gstatus<cr>
 nnoremap <Leader>gb :Gblame w<cr>
 nnoremap <Leader>gc :Gcommit<cr>
 nnoremap <Leader>gd :Gdiff<cr>
+set diffopt+=vertical
 
 Plugin 'airblade/vim-gitgutter'
 highlight clear SignColumn
@@ -198,6 +204,8 @@ if !exists("$GIT_DIR") " when launched from git, nerdtree gets confused about %h
     Plugin 'scrooloose/nerdtree'
     map <Leader>e :NERDTreeToggle<CR>
     map <Leader><Leader>e :NERDTreeFind<CR>
+    " https://stackoverflow.com/questions/1864394/vim-and-nerd-tree-closing-a-buffer-properly
+    nnoremap <leader>q :bp<cr>:bd #<cr>
 endif
 
 
@@ -209,8 +217,11 @@ Plugin 'godlygeek/tabular'
 Plugin 'quentindecock/vim-cucumber-align-pipes'
 
 " Javascript
-Plugin 'elzr/vim-json'
+"Plugin 'elzr/vim-json'
+Plugin 'tpope/vim-jdaddy'
 Plugin 'groenewege/vim-less'
+
+command! PrettyPrintJSON %!/python27/python.exe -m json.tool
 
 let g:javascript_conceal = 1
 Plugin 'pangloss/vim-javascript'
@@ -483,13 +494,16 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
+" When joining sentences, don't use 2 spaces after the period.
+set nojoinspaces
+
 " Linebreak on 500 characters
 set lbr
 set tw=500
 
 set ai "Auto indent
 set si "Smart indent
-set wrap "Wrap lines
+set nowrap "Wrap lines
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType xml setlocal shiftwidth=2 tabstop=2
 autocmd BufRead *.cshtml setf html
